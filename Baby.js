@@ -4,7 +4,7 @@
 //var day_dis = displaydate(day_clac)// 显示当前日期
 
 var wid = $device.info.screen.width
-var DEFAULT_ = ["2018年12月17日 06时05分 ","2018-12-17T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
+var DEFAULT_ = ["2018年12月17日 06时05分 ","2018-12-16T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
 var SETTING_ = JSON.parse(JSON.stringify(DEFAULT_))//数据转换
 
 var preview_ = {
@@ -167,9 +167,16 @@ function displaydate(date) {
 function clacdays(date) {
   var d_1 = new Date(date)
   var d_2 = new Date(day_clac)
-  var key_ = d_1 >= d_2 ? (d_1 - d_2 == 0 ? "就在" : "还有") : "已经"
-  var key_1 = d_1 >= d_2 ? "目标" : "起始"
-  var days_ = Math.abs(d_1 - d_2) / 86400000 === 0 ? "今" : Math.abs(d_1 - d_2) / 86400000 
+  var key_ = "已经"
+  var key_1 = "生于"
+
+  var t = Math.abs(d_1 - d_2);
+  var d = Math.floor(t/1000/60/60/24);
+  var h = Math.floor(t/1000/60/60%24);
+  var m = Math.floor(t/1000/60%60);
+  var s = Math.floor(t/1000%60);
+
+  var days_ = d +"天"+ h +"时"+ m +"分"+ s +"秒"
   return [days_, key_, key_1]
 }
 
