@@ -1,8 +1,5 @@
-//2
-//var file = $file.read("Setting.conf")
-//var day_clac = (new Date()).toLocaleDateString()// 获取当前日期
-//var day_dis = displaydate(day_clac)// 显示当前日期
 
+<<<<<<< HEAD
 var wid = $device.info.screen.width
 var DEFAULT_ = ["2018-12-17 06:05","2018-12-16T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
 var SETTING_ = JSON.parse(JSON.stringify(DEFAULT_))//数据转换
