@@ -5,7 +5,7 @@ var day_dis = displaydate(day_clac)// 显示当前日期
 var DEFAULT_ = [day_dis, day_clac, "", 0, "#409EF6", "#2C86D9", "#409EF6", "#2C86D9"]//设置默认日期
 var SETTING_ = (typeof file == "undefined") ? JSON.parse(JSON.stringify(DEFAULT_)) : JSON.parse(file.string)//获取Setting.conf的数据
 
-//设置缓存
+//设置缓存 
 setcache(SETTING_[1])
 
 var text_ = {
