@@ -1,4 +1,3 @@
-
 var wid = $device.info.screen.width
 var DEFAULT_ = ["2018-12-17 06:05","2018-12-16T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
 var SETTING_ = JSON.parse(JSON.stringify(DEFAULT_))//数据转换
@@ -19,7 +18,7 @@ var preview_ = {
         type: "label",
         props: {
           id: "target_text",//姓名
-          text: "张钦云",
+          text: "  张钦云",
           font: $font("bold", 25)
         },
         layout: function(make, view) {
@@ -44,11 +43,11 @@ var preview_ = {
       props: {
         id: "days_1", 
         color: $color("blue"),
-        font: $font("AvenirNext-DemiBold", 30),
+        font: $font("AvenirNext-DemiBold", 25),
       },
       layout: function(make, view) {
         make.centerY.equalTo(view.super).offset(1)
-        make.right.equalTo(view.super.right).offset(-58)
+        make.right.equalTo(view.super.right).offset(-20)
       }
     }]
 }
@@ -67,7 +66,12 @@ $ui.render({
 })  
 
 
-  $("days_1").text = clacdays(SETTING_[1])[0]
+  $("days_1").text = $timer.schedule({
+    interval: 3,
+    handler: function() {
+        clacdays(SETTING_[1])[0]
+    }
+  })
 
 //计算天数
 function clacdays(date) {
