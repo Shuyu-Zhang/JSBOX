@@ -59,7 +59,7 @@ var preview_ = {
     {
       type: "label",
       props: {
-        id: "days_1",
+        id: "days_1",  
         color: $color("white"),
         font: $font("AvenirNext-DemiBold", 30),
       },
