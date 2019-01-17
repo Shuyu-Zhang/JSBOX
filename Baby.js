@@ -43,7 +43,7 @@ var preview_ = {
       type: "label",
       props: {
         id: "days_1", 
-        color: $color("white"),
+        color: $color("blue"),
         font: $font("AvenirNext-DemiBold", 30),
       },
       layout: function(make, view) {
@@ -57,32 +57,6 @@ $ui.render({
   layout: $layout.fill,
   views: [{
     type: "view",
-    props: {
-      id: "theme_c",
-      radius: 5,
-      bgcolor: $color(SETTING_[6]),
-    },
-    layout: function(make, view) {
-      make.centerY.equalTo(view.super)
-      make.right.equalTo(view.super).offset(-11)
-      make.height.equalTo(40)
-      make.width.equalTo(35)
-    },
-    views: [{
-      tpye: "view",
-      props: {
-        id: "theme_c1",
-        bgcolor: $color(SETTING_[7])
-      },
-      layout: function(make, view) {
-        make.top.equalTo(view.super)
-        make.right.equalTo(view.super)
-        make.height.equalTo(40)
-        make.width.equalTo(35)
-      }
-    }]
-  }, {
-    type: "view",
     layout: function(make, view) {
       make.centerX.equalTo(view.super)
       make.centerY.equalTo(view.super)
@@ -93,8 +67,7 @@ $ui.render({
 })  
 
 
-  $("days_1").text = clacdays(SETTING_[1])[0] > 99999 ? 99999 + "+" : clacdays(SETTING_[1])[0]
-
+  $("days_1").text = clacdays(SETTING_[1])[0]
 
 //计算天数
 function clacdays(date) {
@@ -111,22 +84,4 @@ function clacdays(date) {
 
   var days_ = d +"天"+ h +"时"+ m +"分"+ s +"秒"
   return [days_, key_, key_1]
-}
-
-//自适应天数背景
-function bg_width() {
-  var n = ($("days_1").text).length
-  if ($("days_1").text === "今") {
-    var n = 1.6
-  }
-  $("theme_c").updateLayout(function(make) {
-    make.width.equalTo(n * 18.4 + 48)
-  })
-  if ($("target_key_").text === "已经") {
-    $("theme_c").bgcolor = $color(SETTING_[4])
-    $("theme_c1").bgcolor = $color(SETTING_[5])
-  } else {
-    $("theme_c").bgcolor = $color(SETTING_[6])
-    $("theme_c1").bgcolor = $color(SETTING_[7])
-  }
 }
