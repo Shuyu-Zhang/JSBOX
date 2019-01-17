@@ -378,7 +378,9 @@ function picktheme(data) {
 }
 
 //更新
-var updateURL = "https://raw.githubusercontent.com/ZiGmaX809/JsBoxLib/master/Days_Pro/Days%20Pro.box"
+var updateURL = "https://raw.githubusercontent.com/Shuyu-Zhang/JSBOX/master/Baby.js"
+$app.openURL(updateURL)
+$ui.toast('正在安装更新...')
 $http.get({
   url: "https://raw.githubusercontent.com/ZiGmaX809/JsBoxLib/master/Days_Pro/version",
   handler: function(resp) {
