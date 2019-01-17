@@ -94,7 +94,7 @@ $ui.render({
     },
     views: [preview_]
   }]
-}) 
+})  
 
 
   $("days_1").text = clacdays(SETTING_[1])[0] > 99999 ? 99999 + "+" : clacdays(SETTING_[1])[0]
