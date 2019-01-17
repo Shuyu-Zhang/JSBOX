@@ -66,10 +66,10 @@ $ui.render({
 })  
 
 
-  $("days_1").text = $timer.schedule({
+  $timer.schedule({
     interval: 1,
     handler: function() {
-        clacdays(SETTING_[1])[0]
+        $("days_1").text = clacdays(SETTING_[1])[0]
     }
   })
 
