@@ -1,4 +1,4 @@
-
+//1
 //var file = $file.read("Setting.conf")
 //var day_clac = (new Date()).toLocaleDateString()// 获取当前日期
 //var day_dis = displaydate(day_clac)// 显示当前日期
