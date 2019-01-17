@@ -166,7 +166,7 @@ function displaydate(date) {
 //计算天数
 function clacdays(date) {
   var d_1 = new Date(date)
-  var d_2 = new Date(day_clac)
+  var d_2 = new Date()
   var key_ = "已经"
   var key_1 = "生于"
 
