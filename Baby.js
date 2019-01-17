@@ -46,7 +46,7 @@ var preview_ = {
         type: "label",
         props: {
           id: "target_date",
-          text: clacdays(SETTING_[1])[2] + "日：" + SETTING_[0].replace(/[年|月]/g, "-").replace(/日/, ""),
+          text: clacdays(SETTING_[1])[2],
           color: $color("#545455"),
           font: $font(13)
         },
