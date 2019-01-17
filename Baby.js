@@ -85,6 +85,6 @@ function clacdays(date) {
   var s = Math.floor(t/1000%60);
 
   var days_ = d +"天"+ h +"时"+ m +"分"+ s +"秒"
-  return date
+  return days_
   //return [days_, key_, key_1]
 }
