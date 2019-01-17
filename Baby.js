@@ -1,4 +1,4 @@
-//1
+//2
 //var file = $file.read("Setting.conf")
 //var day_clac = (new Date()).toLocaleDateString()// 获取当前日期
 //var day_dis = displaydate(day_clac)// 显示当前日期
@@ -57,8 +57,47 @@ var preview_ = {
     }]
 }
 
-  $("days_1").text = clacdays(SETTING_[1])[0] > 99999 ? 99999 + "+" : clacdays(SETTING_[1])[0]
+$ui.render({
+  layout: $layout.fill,
+  views: [{
+    type: "view",
+    props: {
+      id: "theme_c",
+      radius: 5,
+      bgcolor: $color(SETTING_[6]),
+    },
+    layout: function(make, view) {
+      make.centerY.equalTo(view.super)
+      make.right.equalTo(view.super).offset(-11)
+      make.height.equalTo(40)
+      make.width.equalTo(35)
+    },
+    views: [{
+      tpye: "view",
+      props: {
+        id: "theme_c1",
+        bgcolor: $color(SETTING_[7])
+      },
+      layout: function(make, view) {
+        make.top.equalTo(view.super)
+        make.right.equalTo(view.super)
+        make.height.equalTo(40)
+        make.width.equalTo(35)
+      }
+    }]
+  }, {
+    type: "view",
+    layout: function(make, view) {
+      make.centerX.equalTo(view.super)
+      make.centerY.equalTo(view.super)
+      make.size.equalTo($size(wid - 4, 100))
+    },
+    views: [preview_]
+  }]
+})
 
+
+  $("days_1").text = clacdays(SETTING_[1])[0] > 99999 ? 99999 + "+" : clacdays(SETTING_[1])[0]
 
 
 //计算天数
