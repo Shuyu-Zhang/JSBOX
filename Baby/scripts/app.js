@@ -256,25 +256,6 @@ $ui.render({
           make.top.equalTo(view.super).offset(180)
           make.size.equalTo($size(wid, 1))
         }
-      },
-      {
-        //icon
-        type: "button",
-        props: {
-          icon: $icon("134", $color("#C1C1C0"),$size(25,25)),
-          bgcolor: $color("clear")
-        },
-        layout: function(make, view) {
-          make.top.equalTo(view.super).offset(198)
-          make.left.equalTo(view.super).offset(10)
-        }
-      }, {
-        type: "view",
-        layout: function(make, view) {
-          make.top.equalTo(view.super).offset(180)
-          make.size.equalTo($size(wid, 60))
-        },
-        views: holidays_
       }
     ]
   }, {
@@ -395,3 +376,26 @@ function picktheme(data) {
     return ["#E076B2", "#D8459F"]
   }
 }
+
+//更新
+var updateURL = "https://raw.githubusercontent.com/ZiGmaX809/JsBoxLib/master/Days_Pro/Days%20Pro.box"
+$http.get({
+  url: "https://raw.githubusercontent.com/ZiGmaX809/JsBoxLib/master/Days_Pro/version",
+  handler: function(resp) {
+    var data = resp.data
+    var v = 1.04
+    if (data > v) {
+      $ui.action({
+        title: '更新提示',
+        message: '发现新版本, 是否更新 ?',
+        actions: [{
+          title: '更新',
+          handler: () => {
+            $app.openURL(updateURL)
+            $ui.toast('正在安装更新...')
+          }
+        }]
+      })
+    }
+  }
+})
