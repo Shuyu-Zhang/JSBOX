@@ -18,18 +18,18 @@ var preview_ = {
         type: "label",
         props: {
           id: "target_text",//姓名
-          text: "  张钦云",
+          text: SETTING_[2],
           font: $font("bold", 25)
         },
         layout: function(make, view) {
           make.top.equalTo(view.super).offset(25)
-          make.left.equalTo(view.super).offset(15)
+          make.left.equalTo(view.super).offset(30)
         }
       }, {
         type: "label",
         props: {
           id: "target_date",//出生时间
-          text: "2018-12-17 06:05",
+          text: SETTING_[0],
           color: $color("#545455"),
           font: $font(13)
         },
@@ -65,11 +65,11 @@ $ui.render({
   }]
 })  
 
-
+$("days_1").text = clacdays(SETTING_[1])
   $timer.schedule({
     interval: 1,
     handler: function() {
-        $("days_1").text = clacdays(SETTING_[1])[0]
+        $("days_1").text = clacdays(SETTING_[1])
     }
   })
 
@@ -77,8 +77,6 @@ $ui.render({
 function clacdays(date) {
   var d_1 = new Date(date)
   var d_2 = new Date()
-  var key_ = "已经"
-  var key_1 = "生于"
 
   var t = Math.abs(d_1 - d_2);
   var d = Math.floor(t/1000/60/60/24);
@@ -87,5 +85,6 @@ function clacdays(date) {
   var s = Math.floor(t/1000%60);
 
   var days_ = d +"天"+ h +"时"+ m +"分"+ s +"秒"
-  return [days_, key_, key_1]
+  return date
+  //return [days_, key_, key_1]
 }
