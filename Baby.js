@@ -4,7 +4,7 @@
 //var day_dis = displaydate(day_clac)// 显示当前日期
 
 var wid = $device.info.screen.width
-var DEFAULT_ = ["2018年12月17日 06时05分","2018-12-16T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
+var DEFAULT_ = ["2018-12-17 06:05","2018-12-16T22:05:00.000Z","张钦云",1,"#FF9F01","#FA8D01","#409EF6","#2C86D9"] //设置数据
 var SETTING_ = JSON.parse(JSON.stringify(DEFAULT_))//数据转换
 
 var preview_ = {
@@ -22,7 +22,7 @@ var preview_ = {
       views: [{
         type: "label",
         props: {
-          id: "target_text",
+          id: "target_text",//姓名
           text: SETTING_[2],
           font: $font("bold", 25)
         },
@@ -33,7 +33,7 @@ var preview_ = {
       }, {
         type: "label",
         props: {
-          id: "target_key_",
+          id: "target_key_",//已经
           text: clacdays(SETTING_[1])[1],
           font: $font(20),
           color: $color("#545455")
@@ -45,7 +45,7 @@ var preview_ = {
       }, {
         type: "label",
         props: {
-          id: "target_date",
+          id: "target_date",//生于XXXXX
           text: clacdays(SETTING_[1])[2] + SETTING_[0],
           color: $color("#545455"),
           font: $font(13)
@@ -67,19 +67,7 @@ var preview_ = {
         make.centerY.equalTo(view.super).offset(1)
         make.right.equalTo(view.super.right).offset(-58)
       }
-    }, {
-      type: "label",
-      props: {
-        text: "天",
-        color: $color("white"),
-        font: $font(23),
-      },
-      layout: function(make, view) {
-        make.centerY.equalTo(view.super).offset(-1)
-        make.right.equalTo(view.super.right).offset(-23)
-      }
-    }
-  ]
+    }]
 }
 
 $ui.render({
